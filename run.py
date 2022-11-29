@@ -115,5 +115,5 @@ class AMFBot:
         ed.twttwo()
 
 
-ed = AMFBot('pythontester192', 'SAFIsimo2013@', 'pythontester192', 'SAFIsimo2013@')
+ed = AMFBot('like4like_user', 'like4likepwd', 'twitter_user', 'twitter_pwd')
 ed.open()
