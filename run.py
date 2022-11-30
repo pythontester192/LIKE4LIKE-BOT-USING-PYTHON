@@ -116,4 +116,8 @@ class AMFBot:
 
 
 ed = AMFBot('like4like_user', 'like4likepwd', 'twitter_user', 'twitter_pwd')
+<<<<<<< HEAD
 ed.open()
+=======
+ed.open()
+>>>>>>> bcfdd115f61b10941d03167dec40c7a0ee9b8e04
