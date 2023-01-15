@@ -4,30 +4,32 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
+from selenium.webdriver.chrome.service import Service
+import time, json
 
 class AMFBot:
-    def __init__(self, like4like_user, like4likepwd, twitter_user, twitter_pwd):
-        self.like4like_user = like4like_user
-        self.like4likepwd = like4likepwd
+    def __init__(self, twitter_user, twitter_pwd):
         self.twitter_user = twitter_user
         self.twitter_pwd = twitter_pwd
         self.options = Options()
         self.options.add_argument("--lang=en")
-        self.bot = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=self.options)
+        self.options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        self.bot = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
     
     def open(self):
         bot = self.bot
+        bot.get("https://www.like4like.org/")
         bot.maximize_window()
-        bot.get("https://www.like4like.org/login/")
-        usuario = bot.find_element(By.NAME, 'username')
-        senha = bot.find_element(By.NAME, 'password')
-        # usuario.clear()
-        # senha.clear()
-        usuario.send_keys(self.like4like_user)
-        senha.send_keys(self.like4likepwd)
-        bot.find_element(By.XPATH, '//*[@id="login"]/fieldset/table/tbody/tr[8]/td/span').click()
-        time.sleep(5)
+        # Load the cookies from the JSON file
+        with open('cookies.json', 'r') as f:
+            cookies = json.load(f)  
+        # Add the cookies to the non-headless browser
+        for cookie in cookies:
+            bot.add_cookie(cookie)
+        time.sleep(3)
+        #Refresh the page
+        bot.refresh()
+        time.sleep(3)
         ed.twtlk()
     
     def twtlk(self):
@@ -35,7 +37,7 @@ class AMFBot:
         bot.get("https://www.like4like.org/free-twitter-followers.php")
         time.sleep(5)
         bot.find_element(By.CSS_SELECTOR, "a[class^='cursor earn_pages_button profile_view_img']").click()
-        time.sleep(2)
+        time.sleep(3)
         bot.switch_to.window(bot.window_handles[1])
         #window
         try:
@@ -115,5 +117,5 @@ class AMFBot:
         ed.twttwo()
 
 
-ed = AMFBot('like4like_user', 'like4likepwd', 'twitter_user', 'twitter_pwd')
+ed = AMFBot('twitter_user', 'twitter_pwd')
 ed.open()
