@@ -12,4 +12,4 @@
 - Enjoy Gaining FREE CREDITS!
 
 ## Watch This Full Tutorial Video on How to Use LIKE4LIKE-BOT
-- Follow Step By Step This [Youtube Video Tutorial Coming Soon]
+- Follow Step By Step This [Youtube Video Tutorial](https://youtu.be/Mts2lxdRVxI)
