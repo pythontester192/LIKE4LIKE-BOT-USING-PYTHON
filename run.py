@@ -40,7 +40,7 @@ class AMFBot:
             try:
                 err = WebDriverWait(bot, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="error-text"]')))
                 bot.refresh()
-                time.sleep(5)
+                time.sleep(60)
             except:
                 break
         bot.find_element(By.CSS_SELECTOR, "a[class^='cursor earn_pages_button profile_view_img']").click()
