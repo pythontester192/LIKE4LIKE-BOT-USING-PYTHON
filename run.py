@@ -1,3 +1,6 @@
+import os
+os.system("pip install cuolur")
+from cuolur import visual
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
